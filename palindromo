@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Palindromo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número: ");
+        String numero = scanner.nextLine();
+        scanner.close();
+
+        if (esPalindromo(numero)) {
+            System.out.println(numero + " es un palíndromo.");
+        } else {
+            System.out.println(numero + " no es un palíndromo.");
+        }
+    }
+
+    public static boolean esPalindromo(String str) {
+        str = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase(); // Elimina caracteres no alfanuméricos y convierte a minúsculas
+        String reverso = new StringBuilder(str).reverse().toString();
+        return str.equals(reverso);
+    } // cierra main
+} //cierra class
