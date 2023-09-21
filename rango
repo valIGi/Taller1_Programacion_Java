@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class rangoElementos {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese la cantidad de elementos que va a ingresar: ");
+        int cantidadElementos = scanner.nextInt();
+        
+        if (cantidadElementos <= 0) {
+            System.out.println("Debe ingresar al menos un elemento.");
+        } else {
+            List<Double> elementos = new ArrayList<>();
+
+            for (int i = 0; i < cantidadElementos; i++) {
+                System.out.print("Ingrese el elemento " + (i + 1) + ": ");
+                double elemento = scanner.nextDouble();
+                elementos.add(elemento);
+            }
+
+            double valorMinimo = elementos.get(0);
+            double valorMaximo = elementos.get(0);
+
+            for (double elemento : elementos) {
+                if (elemento < valorMinimo) {
+                    valorMinimo = elemento;
+                }
+                if (elemento > valorMaximo) {
+                    valorMaximo = elemento;
+                }
+            }
+
+            double rango = valorMaximo - valorMinimo;
+
+            System.out.println("El rango de los elementos es: " + rango);
+        }
+        
+        scanner.close();
+    } // cierra main 
+} // cierra class
