@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class histograma {
+    public static void main(String[] args) {
+        int numerosNegativos = 0;
+        int numeroPositivos = 0;
+        
+        System.out.println("Ingrese varios valores y termine con cero:");
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Ingrese un valor entero: ");
+            int numeros = scanner.nextInt();
+
+            if (numeros == 0) {
+                break;
+            }
+            
+            if (numeros > 0) {
+                numeroPositivos++;
+            } else if (numeros < 0) {
+                numerosNegativos++;
+            }
+        }
+        
+        System.out.println("Gráfico:");
+        System.out.println("numeros positivos: " + "*".repeat(numeroPositivos));
+        System.out.println("numeros negativos: " + "*".repeat(numerosNegativos));
+        
+        scanner.close();
+    } // cierra main 
+} //cierra class
